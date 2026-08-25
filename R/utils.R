@@ -235,7 +235,6 @@
       "#000000"
   )
 }
-}
 
 .resolve_allele_2_dye <- function(kasp, allele_2_dye = NULL) {
   if (!is.null(allele_2_dye)) return(toupper(trimws(allele_2_dye)))
