@@ -186,14 +186,55 @@
   c("Allele 1 / Allele 1", "Heterozygote", "Allele 2 / Allele 2")
 }
 
-.default_call_colours <- function() {
+.default_call_colours <- function(
+  allele_1_dye,
+  allele_2_dye
+) {
+
+  dye_colour <- function(dye) {
+
+    dye <- toupper(
+      trimws(
+        as.character(dye)
+      )
+    )
+
+    switch(
+      dye,
+
+      "FAM" = "#1F4EBA",
+
+      "HEX" = "#E41A1C",
+      "VIC" = "#E41A1C",
+
+      stop(
+        paste0(
+          "Для красителя '",
+          dye,
+          "' не задан цвет."
+        )
+      )
+    )
+  }
+
+
   c(
-    "Allele 1 / Allele 1" = "#E41A1C",
-    "Allele 2 / Allele 2" = "#1F4EBA",
-    "Heterozygote" = "#18A535",
-    "Review / no call" = "#5B5B5B",
-    "NTC" = "#000000"
+    "Allele 1 / Allele 1" =
+      dye_colour(allele_1_dye),
+
+    "Allele 2 / Allele 2" =
+      dye_colour(allele_2_dye),
+
+    "Heterozygote" =
+      "#18A535",
+
+    "Review / no call" =
+      "#5B5B5B",
+
+    "NTC" =
+      "#000000"
   )
+}
 }
 
 .resolve_allele_2_dye <- function(kasp, allele_2_dye = NULL) {
