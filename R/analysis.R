@@ -540,14 +540,22 @@ kasp_cartesian <- function(
   ntc_processed$Genotype <- "NTC"
   ntc_processed$Plotly_Hover <- paste0(ntc_processed$Hover, "<br><b>Type:</b> NTC")
 
-  call_colours <- .default_call_colours(
+  colours <- .default_call_colours(
   allele_1_dye = allele_1_dye,
   allele_2_dye = allele_2_dye
 )
-  if (!is.null(call_colours)) {
-    if (is.null(names(call_colours))) stop("call_colours must be a named vector.", call. = FALSE)
-    colours[names(call_colours)] <- call_colours
+
+if (!is.null(call_colours)) {
+
+  if (is.null(names(call_colours))) {
+    stop(
+      "call_colours must be a named vector.",
+      call. = FALSE
+    )
   }
+
+  colours[names(call_colours)] <- call_colours
+}
 
   valid_samples <- samples_validated[samples_validated$Is_Valid_Call, , drop = FALSE]
   review_samples <- samples_validated[!samples_validated$Is_Valid_Call, , drop = FALSE]
