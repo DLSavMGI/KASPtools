@@ -1,0 +1,23 @@
+Package: KASPtools
+Type: Package
+Title: KASP and KASP-Like Genotyping Utilities
+Version: 0.1.0
+Authors@R: person("Package", "Maintainer", role = c("aut", "cre"), email = "maintainer@example.com")
+Description: Imports KASP and KASP-like fluorescence data from DT96 RDML/XML
+    and QuantStudio XLSX exports, visualizes fluorescence kinetics, performs
+    plateau-corrected allelic discrimination with control-guided empirical
+    clustering, and exports genotype calls and diagnostic results.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Depends: R (>= 4.1.0)
+Imports:
+    dplyr,
+    ggplot2,
+    htmlwidgets,
+    openxlsx,
+    plotly,
+    purrr,
+    tibble,
+    tidyr,
+    xml2
+RoxygenNote: 7.3.2
